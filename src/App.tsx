@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Todos from './components/Todos';
+import Model from './Model';
 
 function App() {
+  const item1: Model = {
+    id:1,
+    text:'Master Typescript'
+  }
+
+  const item2: Model = {
+    id:2,
+    text:'Master React'
+  }
+  const items = [
+    item1,
+    item2
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Todos items = {items} />
     </div>
   );
 }
