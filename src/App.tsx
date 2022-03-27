@@ -23,7 +23,7 @@ function App() {
 
   const addTodo = (newText: string)=> {
     let item3: Model ={
-      id:3,
+      id:new Date().toISOString(),
       text: newText
     } 
     setTodo((prevState)=>{
@@ -32,10 +32,20 @@ function App() {
     
   }
 
+  const removeTodo = (clickedId: string) => {
+    let arr:Model[]= []
+    todo.map(item=>{
+      if(item.id !== clickedId){
+        arr = [...arr, item ]
+      }
+    })
+    setTodo(arr)
+  }
+
   return (
     <div className="App">
       <NewTodos addNewTodo={addTodo} />
-      <Todos items = {todo} />
+      <Todos items = {todo} removeTodo={removeTodo} />
     </div>
   );
 }
